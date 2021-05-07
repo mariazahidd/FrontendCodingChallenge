@@ -1,0 +1,41 @@
+<form class="registration-form" [formGroup]="registrationForm" (ngSubmit)="submitForm()">
+    <div class="form-row">
+        <div class="label-row">
+            <label for="email">Email:</label>
+        </div>
+        <div class="input-row">
+            <input class="form-input" placeholder="Email..." formControlName="email" name="email">
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="label-row">
+            <label for="password">Password</label>
+        </div>
+        <div class="input-row">
+            <input class="form-input" type="password" formControlName="password" name="password"
+                placeholder="Password...">
+        </div>
+    </div>
+
+        <div class="error-row">
+            <div class="errors">
+                <div class="error" [ngClass]="{ 'success': (!registrationForm.controls.password.pristine && !registrationForm.controls.password.errors?.minlength), 
+                'error': registrationForm.controls.password.pristine || registrationForm.controls.password.errors?.minlength}"> 8+ Characters</div>
+                <div class="error" [ngClass]="{ 'success': (!registrationForm.controls.password.pristine && !registrationForm.controls.password.errors?.lowercaseCharacterError), 
+                'error':  registrationForm.controls.password.pristine || registrationForm.controls.password.errors?.lowercaseCharacterError}"> Lower case letter</div>
+                <div class="error" [ngClass]="{ 'success': (!registrationForm.controls.password.pristine && !registrationForm.controls.password.errors?.uppercaseCharacterError), 
+                'error':  registrationForm.controls.password.pristine || registrationForm.controls.password.errors?.uppercaseCharacterError}"> Upper case letter</div>
+                <div class="error" [ngClass]="{ 'success': (!registrationForm.controls.password.pristine && !registrationForm.controls.password.errors?.numberError), 
+                'error':  registrationForm.controls.password.pristine || registrationForm.controls.password.errors?.numberError}"> Number</div>
+                <div class="error" [ngClass]="{ 'success': (!registrationForm.controls.password.pristine && !registrationForm.controls.password.errors?.specialCharacterError), 
+                'error':  registrationForm.controls.password.pristine || registrationForm.controls.password.errors?.specialCharacterError}"> Special character</div>
+  
+            </div>
+        </div>
+        <div class="button-row">
+            <input type="submit" class="button button-submit" [ngClass]="{'button-disable': this.registrationForm.valid === false}"
+                 value="Submit">
+        </div>
+
+</form>

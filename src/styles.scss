@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+$primary-button-color: #0074d9;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "ArialMT";
+    font-size: 18px;
+}
+
+
+.button {
+    display: inline-block;
+    border-radius: 3px;
+    padding: 7px 12px;
+    border: 1px solid #d5d5d5;
+    background-image: linear-gradient(#eee, #ddd);
+    font: 700 13px/18px Helvetica, arial;
+    cursor: pointer;
+}
+.button:hover {
+    box-shadow: 0 2px 3px 0 rgb(0 0 0 / 24%), 0 5px 15px 0 rgb(0 0 0 / 19%);
+    opacity: 0.8;
+}
+.button-disable,
+.button-disable:hover {
+    opacity: 0.6;
+    box-shadow: none;
+}
+.button-submit {
+    border-color: $primary-button-color;
+    color: white;
+    background: $primary-button-color;
+}
